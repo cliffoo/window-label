@@ -30,5 +30,16 @@
   </head>
   <body>
     <textarea autofocus placeholder="This window is for..."></textarea>
+    <script>
+      const textareaElement = document.querySelector("textarea");
+      const key = "content";
+
+      const content = sessionStorage.getItem(key);
+      if (content) textareaElement.value = content;
+
+      textareaElement.addEventListener("change", function () {
+        sessionStorage.setItem(key, textareaElement.value);
+      });
+    </script>
   </body>
 </html>
